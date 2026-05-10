@@ -1,5 +1,9 @@
 # Sistema de Logística para Entregas (E-commerce)
 
+## 📋 Sobre o Projeto
+
+Este projeto simula o funcionamento de um serviço de logística de entregas, focado na gestão de entregadores, pedidos e no fluxo operacional de transporte. O objetivo principal é aplicar conceitos avançados de Programação Orientada a Objetos (POO) em Java, como herança, interfaces, classes abstratas e polimorfismo.
+
 ## 👥 Integrantes do Grupo
 
 
