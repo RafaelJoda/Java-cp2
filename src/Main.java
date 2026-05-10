@@ -8,9 +8,6 @@ public class Main {
         Scanner scanner = new Scanner(System.in, "UTF-8");
         SistemaLogistica sistema = new SistemaLogistica();
 
-        System.out.println("╔══════════════════════════════════════╗");
-        System.out.println("║    SISTEMA DE LOGÍSTICA - E-COMMERCE ║");
-        System.out.println("╚══════════════════════════════════════╝");
 
         int opcao = -1;
 

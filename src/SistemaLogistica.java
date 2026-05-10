@@ -15,9 +15,7 @@ public class SistemaLogistica {
         this.proximoIdEntrega = 1;
     }
 
-    // ========================
-    // ENTREGADORES
-    // ========================
+
 
     public void cadastrarEntregador(String nome, String tipo) {
         Entregador entregador;
@@ -36,7 +34,7 @@ public class SistemaLogistica {
                 return;
         }
         entregadores.add(entregador);
-        System.out.println("✅ Entregador cadastrado com sucesso! ID: " + entregador.getId());
+        System.out.println("Entregador cadastrado com sucesso! ID: " + entregador.getId());
     }
 
     public void listarEntregadores() {
@@ -64,14 +62,12 @@ public class SistemaLogistica {
         }
     }
 
-    // ========================
-    // ENTREGAS
-    // ========================
+
 
     public void criarEntrega(String endereco, double distanciaKm) {
         Entrega entrega = new Entrega(proximoIdEntrega++, endereco, distanciaKm);
         entregas.add(entrega);
-        System.out.println("✅ Entrega criada com sucesso! ID: " + entrega.getId());
+        System.out.println("Entrega criada com sucesso! ID: " + entrega.getId());
     }
 
     public void listarEntregas() {
@@ -90,19 +86,19 @@ public class SistemaLogistica {
         Entregador entregador = buscarEntregador(idEntregador);
 
         if (entrega == null) {
-            System.out.println("❌ Entrega não encontrada.");
+            System.out.println("Entrega não encontrada.");
             return;
         }
         if (entregador == null) {
-            System.out.println("❌ Entregador não encontrado.");
+            System.out.println("Entregador não encontrado.");
             return;
         }
         if (!entregador.isDisponivel()) {
-            System.out.println("❌ Entregador indisponível no momento.");
+            System.out.println("Entregador indisponível no momento.");
             return;
         }
         if (entrega.getStatus() != Entrega.Status.PENDENTE) {
-            System.out.println("❌ Entrega não está pendente.");
+            System.out.println("Entrega não está pendente.");
             return;
         }
 
@@ -112,14 +108,14 @@ public class SistemaLogistica {
         entregador.atualizarLocalizacao("Em rota para: " + entrega.hashCode()); // simulação
 
         double tempo = entregador.calcularTempoEntrega(entrega.getDistanciaKm());
-        System.out.printf("✅ Entrega #%d atribuída a %s. Tempo estimado: %.0f minutos.%n",
+        System.out.printf("Entrega #%d atribuída a %s. Tempo estimado: %.0f minutos.%n",
                 idEntrega, entregador.getNome(), tempo);
     }
 
     public void atualizarStatusEntrega(int idEntrega, String novoStatus, String observacao) {
         Entrega entrega = buscarEntrega(idEntrega);
         if (entrega == null) {
-            System.out.println("❌ Entrega não encontrada.");
+            System.out.println("Entrega não encontrada.");
             return;
         }
 
@@ -127,7 +123,7 @@ public class SistemaLogistica {
         try {
             status = Entrega.Status.valueOf(novoStatus.toUpperCase());
         } catch (IllegalArgumentException e) {
-            System.out.println("❌ Status inválido. Use: PENDENTE, EM_ROTA, ENTREGUE, CANCELADO");
+            System.out.println("Status inválido. Use: PENDENTE, EM_ROTA, ENTREGUE, CANCELADO");
             return;
         }
 
@@ -137,7 +133,7 @@ public class SistemaLogistica {
             entrega.atualizarStatus(status, observacao);
         }
 
-        // Libera entregador se entrega foi finalizada
+
         if ((status == Entrega.Status.ENTREGUE || status == Entrega.Status.CANCELADO)
                 && entrega.getEntregador() != null) {
             entrega.getEntregador().setDisponivel(true);
@@ -145,9 +141,6 @@ public class SistemaLogistica {
         }
     }
 
-    // ========================
-    // BUSCA INTERNA
-    // ========================
 
     private Entrega buscarEntrega(int id) {
         for (Entrega e : entregas) {

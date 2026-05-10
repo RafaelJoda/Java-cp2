@@ -19,13 +19,13 @@ public class Entrega {
         this.observacao = "";
     }
 
-    // Sobrecarga 1: atualizar apenas o status
+
     public void atualizarStatus(Status novoStatus) {
         this.status = novoStatus;
         System.out.println("Entrega #" + id + " -> Status atualizado para: " + novoStatus);
     }
 
-    // Sobrecarga 2: atualizar status com observação
+
     public void atualizarStatus(Status novoStatus, String observacao) {
         this.status = novoStatus;
         this.observacao = observacao;

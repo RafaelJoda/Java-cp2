@@ -18,7 +18,7 @@ public abstract class Entregador implements Rastreavel {
     // Método abstrato - cada tipo tem sua descrição
     public abstract String getTipoVeiculo();
 
-    // Implementação da interface Rastreavel
+
     @Override
     public void atualizarLocalizacao(String local) {
         this.localizacaoAtual = local;
@@ -30,13 +30,13 @@ public abstract class Entregador implements Rastreavel {
         return localizacaoAtual;
     }
 
-    // Sobrecarga: exibir info simples
+
     public void exibirInfo() {
         System.out.println("ID: " + id + " | Nome: " + nome + " | Veículo: " + getTipoVeiculo()
                 + " | Disponível: " + (disponivel ? "Sim" : "Não"));
     }
 
-    // Sobrecarga: exibir info com localização
+
     public void exibirInfo(boolean mostrarLocalizacao) {
         exibirInfo();
         if (mostrarLocalizacao) {
@@ -44,7 +44,7 @@ public abstract class Entregador implements Rastreavel {
         }
     }
 
-    // Getters e Setters
+
     public int getId() { return id; }
     public String getNome() { return nome; }
     public boolean isDisponivel() { return disponivel; }
